@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/baseuser/jgr05-fw/py/lib/robotunit'
+let g:netrw_dirhist_2='/usr/share/vim/vim74/colors'
+let g:netrw_dirhist_3='/etc/dnsmasq.d'

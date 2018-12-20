@@ -1,0 +1,13 @@
+[user]
+	name = Dale Martin
+	email = dale.martin@nuvation.com
+[color]
+	ui = auto
+	diff = auto
+[alias]
+	graph = log --all --graph --oneline --decorate=short
+	hist = log --pretty=format: '%h %ad | %s%d [%an]' --graph date=short
+[core]
+	editor = vim
+[push]
+	default = simple
