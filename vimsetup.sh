@@ -11,8 +11,8 @@ fi
 ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 
-# Install Vundle handled plugins
-vim +PluginInstall +qall
+# Install Vundle handled plugins using vim-fugitive 
+vim +BundleInstall +qall
 
 # Restore directory
 cd -
