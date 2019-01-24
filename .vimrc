@@ -27,6 +27,10 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'badwolf'
+Plugin 'surround.vim'
+
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +49,13 @@ filetype plugin indent on    " required
 
 " Don't use fish shell, use bash
 set shell=/bin/bash
+
+" Use evince for LaTeX previewing
+let g:livepreview_previewer = 'evince'
+" Auto refresh time for vim-latex-live-preview (1000 recommended)
+"autocmd Filetype tex setl updatetime = 1000
+" Only update latex preview on disk write by preventing update on cursor hold
+let g:livepreview_cursorhold_recompile = 0
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
