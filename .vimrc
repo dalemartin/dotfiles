@@ -49,7 +49,7 @@ Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'itchyny/lightline.vim'
 
 " Snippets plugin
-"Plugin 'UltiSnips'
+Plugin 'UltiSnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -153,3 +153,11 @@ vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Tab completion
+set wildmode=longest,list,full
+set wildmenu
+
+" Key bindings
+cnoremap lmk w \| !latexmk -pdf %:p <CR> \| <CR>
+
