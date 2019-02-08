@@ -36,8 +36,20 @@ Plugin 'badwolf'
 " This plugin allows surrounding text with characters like (text), {text}, etc.
 Plugin 'surround.vim'
 
+" Spell checking plugin
+Plugin 'SpellCheck'
+
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plugin 'xuhdev/vim-latex-live-preview'
+
+" Latex plugin
+"Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+
+" Minimalistic statusline plugin
+Plugin 'itchyny/lightline.vim'
+
+" Snippets plugin
+"Plugin 'UltiSnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,6 +93,12 @@ endif
 colorscheme badwolf
 " colorscheme northpole
 
+" lightline plugin statusline set
+set laststatus=2
+
+" Show commands in the statusline as they are typed
+set showcmd
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -123,5 +141,15 @@ endif " has("autocmd")
 set number
 set relativenumber
 
+" Underline spelling errors
+hi clear SpellBad " clear old highlighting settings
+hi SpellBad cterm=underline ctermfg=red
+set spell
+
 " enable searching visually selected text using //
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+
+" Set default indent
+set tabstop=2
+set shiftwidth=2
+set expandtab
