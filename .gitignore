@@ -2,3 +2,5 @@
 .vim/bundle/lightline.vim/
 .vim/spell/
 .vim/bundle/UltiSnips/
+.vim/UltiSnips/
+.vim/bundle/ultisnips/
