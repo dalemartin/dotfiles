@@ -144,7 +144,7 @@ set relativenumber
 " Underline spelling errors
 hi clear SpellBad " clear old highlighting settings
 hi SpellBad cterm=underline ctermfg=red
-set spell
+"set spell
 
 " enable searching visually selected text using //
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
