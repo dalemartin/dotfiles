@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/baseuser/jgr05-fw/py/lib/robotunit'
 let g:netrw_dirhist_2='/usr/share/vim/vim74/colors'
 let g:netrw_dirhist_3='/etc/dnsmasq.d'
 let g:netrw_dirhist_4='/home/nytram/dotfiles/.vim'
+let g:netrw_dirhist_5='/home/nytram/Documents/UW_Files/4B_2019_Winter/ECE_457B/Lecture_Notes/UltiSnips'
+let g:netrw_dirhist_6='/home/nytram/Projects/FYDP/fydp/AutonomousFoosballFeed'
+let g:netrw_dirhist_7='/home/nytram/Projects/FYDP/fydp/AutonomousFoosballFeed/logic'

@@ -49,7 +49,14 @@ Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'itchyny/lightline.vim'
 
 " Snippets plugin
-Plugin 'UltiSnips'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Syntax error highlighting
+"Plugin 'Syntastic'
+
+" Snippets are separated from the engine. Add this if you want them:
+"Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,6 +72,27 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" UltiSnips settings ********************************************
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" ***************************************************************
+
+" Syntastic settings ********************************************
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+" ***************************************************************
 
 " Don't use fish shell, use bash
 set shell=/bin/bash
@@ -160,4 +188,3 @@ set wildmenu
 
 " Key bindings
 cnoremap lmk w \| !latexmk -pdf %:p <CR> \| <CR>
-
