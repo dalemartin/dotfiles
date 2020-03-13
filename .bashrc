@@ -128,3 +128,51 @@ fi
 
 export LONGEVITY_DURATION_S=86400
 export LONGEVITY_NO_JSTP=0
+
+# Colors
+TXTRED='\e[0;31m' # Red
+TXTGRN='\e[0;32m' # Green
+TXTBLU='\e[0;34m' # Blue
+TXTPUR='\e[1;35m' # Purple
+TXTCYN='\e[0;36m' # Cyan
+TXTRST='\e[0m'    # Text Reset
+__setps1() {
+        local s=""
+        local d=""
+        if g="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+                s="($TXTRED$(git branch | grep -m 1 '^\*' | cut -d' ' -f2-)$TXTRST) "
+                d="${PWD#$(dirname ${g:--})/}"
+        elif g="$(svn info 2>/dev/null)"; then
+                url="$(sed -ne 's#^URL: ##p' <<<"$g")"
+                root="$(sed -ne 's#^Repository Root: ##p' <<<"$g")"
+                s="$(sed -e 's#^'"$root"'##g' <<<"$url" | egrep -o \
+                        '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$' | awk '{print $1}')"
+                s="($TXTRED$s$TXTRST) "
+                d='\w'
+        else
+                d='\w'
+        fi
+        #PS1="${TXTBLU}\u${TXTRST}@${TXTPUR}\h${TXTRST} $s[${TXTGRN}$d${TXTRST}] r\$?,j\j\n\$ "
+        PS1="${TXTCYN}\u${TXTRST}@${TXTPUR}\h${TXTRST}$s[${TXTGRN}$d${TXTRST}]\nλ "
+}
+# Set the command prompt
+PROMPT_COMMAND='__setps1'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Rebuild tiva fw and flash SC if successful
+function scprog {
+        cd ~/eco01/fw
+        make -j4 ARCH=stm32 BUILD=prod
+        make -j4 ARCH=tiva_small BUILD=prod
+        make -j4 ARCH=tiva BUILD=prod
+        if [ $? -eq 0 ]; then
+                ~/eco01/py/tools/flash.py sc
+        else
+                echo "Build failed, not programming"
+        fi
+}
+
+HISTTIMEFORMAT="%d/%m/%y %T "
+alias beganat='history | grep $(date +"%d/%m/%y") | head -n 1'  
