@@ -13,3 +13,7 @@ alias gdc='git diff --cached'
 alias gds='git diff --staged'
 alias gcp='git cherry-pick'
 alias gaa='git add --all'
+
+# Nissan CAN testing aliases
+alias lbcY='cansend slcan0 1DB#7F.E0.FF.C6.00.00.00.DE'
+alias lbcN='cansend slcan0 1DB#00.18.A3.6E.00.00.03.00'
